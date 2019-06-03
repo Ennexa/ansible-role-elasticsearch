@@ -34,3 +34,7 @@
     port: "{{ elasticsearch_http_port }}"
     delay: 3
     timeout: 300
+
+- name: Copy groovy scripts
+  copy: src={{ item }} dest=/etc/elasticsearch/scripts/
+  with_items: "{{ elasticsearch_scripts }}"
